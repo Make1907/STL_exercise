@@ -16,14 +16,13 @@ template<class T>
 class VectorTest{
 public:
     explicit VectorTest(T& vec);
-//    ~VectorTest();
     void vector_methods_test();
 
     friend std::ostream & operator<<(std::ostream & out, VectorTest<T> container) {
         typename T::iterator it;
-        out << "vec: ";
+        std::cout << "vec: ";
         for (it = container.vec.begin(); it != container.vec.end(); it++) {
-            out << *it;
+            std::cout << *it << " ";
         }
         return out;
     }
@@ -41,14 +40,7 @@ VectorTest<T>::VectorTest(T& vec){this->vec = vec;}
 
 template<class T>
 void VectorTest<T>::vector_methods_test(){
-    std::cout << "VectorTest: " << std::endl;
+    std::cout << "--------------VectorTest-------------" << std::endl;
+    std::cout << *this << std::endl;
 }
-//void run(){
-//    std::vector<int> vec;
-//    for(int i = 0; i <= 10; i++){
-//        vec.push_back(i);
-//    }
-//    VectorTest<std::vector<int>> test(vec);
-//    test.vector_methods_test();
-//}
 #endif //STL_EXERCISE_STLLEARNING_H
