@@ -1,6 +1,16 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.10)
+
+# set the project name
 project(STL_exercise)
 
-set(CMAKE_CXX_STANDARD 14)
-
-add_executable(STL_exercise test/main.cpp header/tools.h src/stlLearning.cpp header/stlLearning.h src/tools.cpp header/test.h src/test.cpp)
+# add the executable
+add_executable(STL_exercise
+        header/ptr.h
+        header/stlLearning.h
+        header/test.h
+        header/tools.h
+        src/ptr.cpp
+        src/stlLearning.cpp
+        src/tools.cpp
+        src/test.cpp
+        src/main.cpp)
