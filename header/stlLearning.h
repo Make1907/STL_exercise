@@ -6,11 +6,18 @@
 
 #ifndef STL_EXERCISE_STLLEARNING_H
 #define STL_EXERCISE_STLLEARNING_H
+#include<iostream>
 
 #include<vector>
-#include<iostream>
 #include<string>
 #include<list>
+#include<map>
+#include<set>
+#include<unordered_map>
+#include<unordered_set>
+#include<deque>
+#include<stack>
+
 #include<algorithm>
 #include<numeric>
 
@@ -22,10 +29,16 @@ class DS{
 public:
     explicit DS(T& data): data(data){};
     void vector();
-
     void list();
-
     void string();
+    void map();
+    void set();
+    void unordered_map();
+    void unordered_set();
+    void deque();
+    void stack();
+
+    void print_map();
 
     friend std::ostream & operator<<(std::ostream & out, DS<T> container) {
         typename T::iterator it;
@@ -162,12 +175,10 @@ void DS<T>::string() {
     std::string name = "make";
 
     p make(name, number);
-    std::cout << "*make.m_price: " << *make.m_price << std::endl;
+    std::cout << "*make.m_price: " << make.m_price << std::endl;
     int new_price = 890;
     make.set_price(new_price);
     std::cout << "number: " << new_price << std::endl;
-
-
 
     std::cout << data << std::endl;
     typename T::iterator it = data.begin();
@@ -213,5 +224,67 @@ void DS<T>::string() {
 
 }
 
+template<class T>
+void DS<T>::map(){
+    std::cout << "-----------  map   ---------------" << std::endl;
+    this->print_map();
+    std::cout << "-----------  map end  ---------------" << std::endl;
 
+    // create
+    this->data["a"] = 100;
+    this->data["110"] = 100;
+    this->print_map();
+
+    // erase/delete
+    this->data.erase("110");
+    this->print_map();
+
+    // updata
+    this->data["a"] = 999;
+    this->print_map();
+
+    // read
+    std::cout << "data[\"a\"]: " << this->data["a"] << std::endl;
+
+}
+
+template<class T>
+void DS<T>::set(){
+    std::cout << "-----------  set   ---------------" << std::endl;
+    std::cout << *this << std::endl;
+
+    // create
+    this->data.insert("Michael");
+    std::cout << *this << std::endl;
+
+    // erase/delete
+    this->data.erase("99");
+    std::cout << *this << std::endl;
+
+    // no updata
+
+    // read
+    std::cout << "find 5: " << *this->data.find("5") << std::endl;
+
+    std::cout << "-----------  set end  ---------------" << std::endl;
+}
+
+template<class T>
+void DS<T>::unordered_map(){}
+template<class T>
+void DS<T>::unordered_set(){}
+template<class T>
+void DS<T>::deque(){}
+template<class T>
+void DS<T>::stack(){}
+
+template<class T>
+void DS<T>::print_map(){
+    typename T::iterator it;
+    for(it = this->data.begin(); it != data.end(); it++){
+        std::cout << "key: " << it->first << "     value: " << it->second << std::endl;
+    }
+    std::cout << "========== end ============" << std::endl;
+
+}
 #endif //STL_EXERCISE_STLLEARNING_H

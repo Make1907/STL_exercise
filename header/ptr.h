@@ -7,8 +7,8 @@
 
 class PtrTest{
 public:
-    explicit PtrTest(){}
-    ~PtrTest(){}
+    explicit PtrTest() = default;
+    ~PtrTest() = default;
     void ptr_basic();
 };
 

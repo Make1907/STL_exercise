@@ -13,4 +13,4 @@ add_executable(STL_exercise
         src/stlLearning.cpp
         src/tools.cpp
         src/test.cpp
-        src/main.cpp)
+        src/main.cpp header/class_details.h)

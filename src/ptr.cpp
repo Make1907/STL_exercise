@@ -5,6 +5,7 @@
 
 #include "../header/tools.h"
 #include "../header/ptr.h"
+#include "../header/class_details.h"
 
 void major_test(Student &student){
     std::cout << "------test outside-------" << std::endl;
@@ -16,8 +17,7 @@ void PtrTest::ptr_basic(){
     std::cout<< "-----------------Ptr basic----------------------" << std::endl;
     // basic variable
     std::string brand = "Apple";
-    int p_p = 19999;
-    int *price = &p_p;
+    int price = 999;
     Phone phone(brand, price);
     int new_price = 99;
     phone.set_price(new_price);
@@ -33,6 +33,9 @@ void PtrTest::ptr_basic(){
     auto * p_stu = new Student(name, age, phone);
     int age_Michael = 18;
     p_stu->set_age(age_Michael);
+
+//    int age_new = p_stu->get_age();
+    std::cout << "m p b: " << p_stu->get_age() << std::endl;
 
     int *p_age = &age_Michael;
     p_stu->set_age(p_age);
@@ -50,7 +53,7 @@ void PtrTest::ptr_basic(){
 
 
     std::cout << "michael name: " << michael.m_name << std::endl;
-    std::cout << "price: " << *price << std::endl;
+    std::cout << "price: " << price << std::endl;
     std::cout << "a: "    << a                 << std::endl;
     std::cout << "**p: "  << **pp              << std::endl;
     std::cout << "m_name: " << p_stu->get_name() << std::endl;

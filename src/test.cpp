@@ -1,10 +1,7 @@
 //
 // Created by Michael on 2023/2/24.
 //
-#include <cstdlib>
-#include <ctime>
-#include <windows.h>
-#include <unordered_set>
+
 # include "../header/test.h"
 
 void Test::vec_test(){
@@ -33,6 +30,24 @@ void Test::string_test() {
     auto * ds_string = new DS<std::string>(s);
     ds_string->string();
 }
+
+void Test::map_test(){
+    std::map<std::string, int> m1;
+    for(int i = 0; i <= 10; i++){ m1.insert(std::make_pair(std::to_string(i), i));}
+    auto * ds_map = new DS(m1);
+    ds_map->map();
+}
+
+void Test::set_test(){
+    std::set<std::string> s1;
+    for(int i = 0; i <= 10; i++){ s1.insert(std::to_string(i));}
+    auto * ds_set = new DS(s1);
+    ds_set->set();
+}
+void Test::unordered_map_test(){}
+void Test::unordered_set_test(){}
+void Test::deque_test(){}
+void Test::stack_test(){}
 
 void Test::ptr_test(){
     auto * ptr_basic_test = new PtrTest();
@@ -66,6 +81,11 @@ void Test::random_string_test() {
     std::cout << "--------------random_string_test end-------------" << std::endl;
 }
 
+void widget(int const & num1){
+    int num2 = num1 + 1;
+    std::cout << "temp +++++++++" << num2 << std::endl;
+}
+
 void Test::class_test() {
     std::cout << "--------------class test-------------" << std::endl;
 
@@ -74,9 +94,27 @@ void Test::class_test() {
     cat->speak();
     delete cat;
     cat = nullptr;
+
+    // test student class
+    std::string name = "Michael";
+    std::string brand = "Huawei Nova";
+    int age = 31;
+    int price = 19999;
+    Phone phone(brand, price);
+
+    Student stu(name, age, phone);
+    int num1 = 9;
+    widget(num1);
+    std::cout << "num1:====" << num1 << std::endl;
+
+    Student * michael = new Michael(name, age, phone);
+    michael->major();
+
     std::cout << "--------------class test end-------------" << std::endl;
 
 }
+
+
 
 std::string is_match(std::vector<std::string> & vec){
     std::unordered_set<std::string> hash;
@@ -110,6 +148,12 @@ void run_test(){
     Test::list_test();
     Test::string_test();
     Test::ptr_test();
+    Test::map_test();
+    Test::set_test();
+    Test::unordered_map_test();
+    Test::unordered_set_test();
+    Test::deque_test();
+    Test::stack_test();
 
     // calculate time
     LARGE_INTEGER t1,t2,tc;
@@ -121,9 +165,6 @@ void run_test(){
     std::cout << "time = " << time << std::endl;  //输出时间（单位：ｓ）
 
     Test::class_test();
-
-
-
 }
 
 
