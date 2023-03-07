@@ -27,7 +27,9 @@
 template<class T>
 class DS{
 public:
+    explicit DS() = default;
     explicit DS(T& data): data(data){};
+    ~DS() = default;
     void vector();
     void list();
     void string();
@@ -274,9 +276,45 @@ void DS<T>::unordered_map(){}
 template<class T>
 void DS<T>::unordered_set(){}
 template<class T>
-void DS<T>::deque(){}
+void DS<T>::deque(){
+    std::cout << "-----------  deque  ---------------" << std::endl;
+    std::cout << *this << std::endl;
+    // create
+    this->data.push_back(21);
+    this->data.push_front(9);
+    std::cout << *this << std::endl;
+
+    // delete erase
+    this->data.pop_back();
+    this->data.pop_front();
+    std::cout << *this << std::endl;
+
+    // update
+    // read retrieve
+    std::cout << this->data[1] << std::endl;
+    std::cout << *this << std::endl;
+    std::cout << "-----------  deque end  ---------------" << std::endl;
+}
 template<class T>
-void DS<T>::stack(){}
+void DS<T>::stack(){
+    std::cout << "-----------  stack  ---------------" << std::endl;
+    std::cout << this->data.top() << std::endl;
+
+    // creat
+    this->data.push(99);
+    std::cout <<  this->data.top() << std::endl;
+
+    // delete erase
+    this->data.pop();
+    std::cout <<  this->data.top() << std::endl;
+
+    // update
+    // read retrieve
+    std::cout << this->data.top() << std::endl;
+    std::cout << this->data.size() << std::endl;
+
+    std::cout << "-----------  stack end  ---------------" << std::endl;
+}
 
 template<class T>
 void DS<T>::print_map(){

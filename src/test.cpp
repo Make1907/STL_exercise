@@ -46,8 +46,25 @@ void Test::set_test(){
 }
 void Test::unordered_map_test(){}
 void Test::unordered_set_test(){}
-void Test::deque_test(){}
-void Test::stack_test(){}
+
+void Test::deque_test(){
+    std::deque<int> d1;
+    for(int i = 10; i < 20; i++){
+        d1.push_back(i);
+    }
+    auto ds_deque = new DS(d1);
+    ds_deque->deque();
+    delete ds_deque;
+}
+void Test::stack_test(){
+    std::stack<int> s1;
+    for(int i = 10; i < 20; i++){
+        s1.push(i);
+    }
+    auto ds_stack = new DS(s1);
+    ds_stack->stack();
+    delete ds_stack;
+}
 
 void Test::ptr_test(){
     auto * ptr_basic_test = new PtrTest();
@@ -114,8 +131,6 @@ void Test::class_test() {
 
 }
 
-
-
 std::string is_match(std::vector<std::string> & vec){
     std::unordered_set<std::string> hash;
     std::string ans_fun;
@@ -166,15 +181,3 @@ void run_test(){
 
     Test::class_test();
 }
-
-
-
-
-
-
-
-
-
-
-
-
